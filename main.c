@@ -3,8 +3,13 @@
 #include <conio.h>
 #include <windows.h>
 #include <time.h>
+#include <tchar.h>
+#include <process.h>
+
+
 
 #define TAMANHO_GRADE_ALTURA 20
+#define VELOCIDADE 100
 #define TAMANHO_GRADE_LARGURA (TAMANHO_GRADE_ALTURA * 2)
 #define TAMANHO_CALDA_MAX (TAMANHO_GRADE_ALTURA * TAMANHO_GRADE_LARGURA)
 
@@ -21,6 +26,8 @@ void desenharMapaJogo();
 int verificarDirecao(int novaDirecao);
 void obterEntradaUsuario();
 void atualizarLogicaJogo();
+void reproduzirSom();
+void som();
 
 int jogoEncerrado = 0;
 int cabecaX, cabecaY;
@@ -55,11 +62,15 @@ void desenharMapaJogo()
   {
     for (int y = 0; y < TAMANHO_GRADE_LARGURA; y++)
     {
-      if (y == 0)
+      if (y == 0) 
       {
         printf("%c", 219);
       }
-      if (y == cabecaX && x == cabecaY)
+      if(y == 0 && x == 0)
+      {
+        printf(" ");
+      }
+      else if (y == cabecaX && x == cabecaY)
       {
         printf("O");
       }
@@ -112,36 +123,35 @@ void obterEntradaUsuario()
 {
   if (kbhit())
   {
-    int novaDirecao;
     switch (getch())
     {
     case 'a':
-      novaDirecao = ESQUERDA;
-      if (verificarDirecao(novaDirecao))
+      direcao = ESQUERDA;
+      if (verificarDirecao(direcao))
       {
         direcaoCabecaX = -1;
         direcaoCabecaY = 0;
       }
       break;
     case 's':
-      novaDirecao = BAIXO;
-      if (verificarDirecao(novaDirecao))
+      direcao = BAIXO;
+      if (verificarDirecao(direcao))
       {
         direcaoCabecaX = 0;
         direcaoCabecaY = 1;
       }
       break;
     case 'd':
-      novaDirecao = DIREITA;
-      if (verificarDirecao(novaDirecao))
+      direcao = DIREITA;
+      if (verificarDirecao(direcao))
       {
         direcaoCabecaX = 1;
         direcaoCabecaY = 0;
       }
       break;
     case 'w':
-      novaDirecao = CIMA;
-      if (verificarDirecao(novaDirecao))
+      direcao = CIMA;
+      if (verificarDirecao(direcao))
       {
         direcaoCabecaX = 0;
         direcaoCabecaY = -1;
@@ -149,6 +159,18 @@ void obterEntradaUsuario()
       break;
     }
   }
+}
+
+int comidaColisaoCobra()
+{
+  for (int i = 0; i < tamanhoCauda; i++)
+  {
+    if (caldaX[i] == comidaX && caldaY[i] == comidaY)
+    {
+      return 1;
+    }
+  }
+  return 0;
 }
 
 void atualizarLogicaJogo()
@@ -177,13 +199,18 @@ void atualizarLogicaJogo()
     jogoEncerrado = 1;
   }
 
-
   if (cabecaX == comidaX && cabecaY == comidaY)
   {
     pontuacao += 10;
-    comidaX = rand() % TAMANHO_GRADE_LARGURA;
-    comidaY = rand() % TAMANHO_GRADE_ALTURA;
+    do
+    {
+      comidaX = rand() % TAMANHO_GRADE_LARGURA;
+      comidaY = rand() % TAMANHO_GRADE_ALTURA;
+    } while (comidaX != 1 && comidaY != 1 && comidaColisaoCobra() == 1);
+  
+
     tamanhoCauda++;
+    reproduzirSom();
   }
 
   for (i = 0; i < tamanhoCauda; i++)
@@ -193,25 +220,59 @@ void atualizarLogicaJogo()
       jogoEncerrado = 2;
     }
   }
+} 
+
+
+void reproduzirSom()
+{
+    _beginthread(som, 0, NULL);
+}
+
+void som()
+{
+    PlaySound(TEXT("C:/Meus-Estudos-Global/Desktop/C/JogoDaCobra/output/PouComendo.wav"), NULL, SND_FILENAME);
 }
 
 int main()
 {
   inicializarJogo();
+  int velocidade;
 
   while (jogoEncerrado == 0)
   {
+    printf("Sua pontuacao eh: %d\n", pontuacao);
     obterEntradaUsuario();
     atualizarLogicaJogo();
     desenharMapaJogo();
 
-    if (direcaoCabecaY == 1 || direcaoCabecaY == -1)
+    if (pontuacao < 50)
     {
-      Sleep(100);
+      velocidade = 5;
     }
-    else
+    else if (pontuacao < 100)
     {
-      Sleep(50);
+      velocidade = 6;
+    }
+    else if (pontuacao < 150)
+    {
+      velocidade = 8;
+    }
+    else if (pontuacao < 200)
+    {
+      velocidade = 10;
+    }
+    else if (pontuacao < 200)
+    {
+      velocidade = 12;
+    }
+
+    if (direcao == CIMA || direcao == BAIXO)
+    {
+      Sleep((VELOCIDADE * 3) / velocidade);
+    }
+    else if (direcao == ESQUERDA || direcao == DIREITA)
+    {
+      Sleep(VELOCIDADE / velocidade);
     }
 
     system("cls");
@@ -227,5 +288,14 @@ int main()
     printf("Voce bateu em si mesmo!\n");
   }
   printf("Sua pontuacao foi: %d\n", pontuacao);
+
+  printf("Pressione espaco para sair\n");
+  do
+    if (getch() == ' ')
+    {
+      break;
+    }
+  while (1);
+
   return 0;
 }
