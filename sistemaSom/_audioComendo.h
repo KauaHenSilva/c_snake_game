@@ -5,7 +5,7 @@
 
 void audioComendo()
 {
-  PlaySound(TEXT("C:/Meus-Estudos-Global/Desktop/C/JogoDaCobra/output/PouComendo.wav"), NULL, SND_FILENAME);
+  PlaySound(TEXT("./PouComendo.wav"), NULL, SND_FILENAME);
 }
 
 #endif // _AUDIOCOMENDO
