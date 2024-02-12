@@ -42,6 +42,10 @@ GCC --version:
 
 Agora o projeto está configurado. Você pode executá-lo com o seguinte comando:
 
+  ```bash
+  cd C_SnakeGame
   ./main.exe
+  ```
+
 
 Use as teclas 'w', 'a', 's' e 'd' para controlar a cobra. O jogo termina quando a cobra bate na parede ou em si mesma.
