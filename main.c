@@ -10,7 +10,7 @@
 #define TAMANHO_CALDA_MAX (TAMANHO_TELA_ALTURA * TAMANHO_TELA_LARGURA)
 
 #include "./modal/modal.h"
-#include "./sistemaSom/sistemaSom.h"
+// #include "./sistemaSom/sistemaSom.h"
 #include "./inicializacoes/inicializacoes.h"
 #include "./desenharMapaJogo/desenharMapaJogo.h"
 #include "./sistemaMovimentacao/sistemaMovimentacao.h"
