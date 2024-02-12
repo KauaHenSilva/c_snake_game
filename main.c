@@ -51,8 +51,6 @@ void obterEntradaUsuario(stDadosStatusGame *dadosStatusGame, stDadosCabeca *dado
   }
 }
 
-
-
 void atualizarLogicaJogo(stDadosCalda *dadosCalda, stDadosStatusGame *dadosStatusGame, stDadosCabeca *dadosCabeca, stDadosConstantes *dadosConstantes, stDadosComida *dadosComida)
 {
   logicaCobra.trocarUtimaCalda(dadosCalda, *dadosCabeca);

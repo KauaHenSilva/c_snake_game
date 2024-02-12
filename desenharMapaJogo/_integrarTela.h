@@ -1,11 +1,6 @@
 #if !defined(_DESENHARPARTESUPERIOR)
 #define _DESENHARPARTESUPERIOR
 
-#include "../modal/modal.h"
-#include <stdio.h>
-#include <stdlib.h>
-
-
 void integrarTela(int ***tela, stDadosConstantes dadosConstantes, stDadosCabeca dadosCabeca, stDadosComida dadosComida, stDadosCalda dadosCalda)
 {
   
@@ -42,8 +37,6 @@ void integrarTela(int ***tela, stDadosConstantes dadosConstantes, stDadosCabeca 
       }
     }
   }
-
-
 }
 
 #endif // _DESENHARPARTESUPERIOR

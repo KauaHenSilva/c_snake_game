@@ -1,8 +1,6 @@
 #if !defined(VERIFICARBATIDAPAREDE)
 #define VERIFICARBATIDAPAREDE
 
-#include "../modal/modal.h"
-
 void verificarBatidaParede(stDadosCabeca dadosCabeca, stDadosConstantes dadosConstantes, stDadosStatusGame *dadosStatusGame)
 {
     if (dadosCabeca.cabecaX < 0 

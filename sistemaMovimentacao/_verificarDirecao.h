@@ -1,8 +1,6 @@
 #if !defined(VERIFICARDIRECAOVALIDA)
 #define VERIFICARDIRECAOVALIDA
 
-#include "../modal/modal.h"
-
 int verificarDirecaoValida(stDadosCabeca dadosCabeca,int novaDirecao)
 {
   if ((novaDirecao == CIMA && dadosCabeca.direcaoCabecaY == 1) ||

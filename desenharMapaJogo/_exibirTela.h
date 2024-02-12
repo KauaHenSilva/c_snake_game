@@ -1,9 +1,6 @@
 #if !defined(EXIBIRTELA)
 #define EXIBIRTELA
 
-#include <stdio.h>
-#include "../modal/modal.h"
-
 static void _desenharLinha(int tamTelaLargura)
 {
   for (int x = 0; x < tamTelaLargura + 2; x++)

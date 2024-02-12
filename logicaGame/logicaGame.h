@@ -13,5 +13,4 @@ struct
   (void (*) (int ***, stDadosStatusGame, stDadosCalda *))LogicaFimDeJogo
 };
 
-
 #endif // LOGICAGAME

@@ -1,7 +1,6 @@
 #if !defined(MOVERESQUERDA)
 #define MOVERESQUERDA
 
-#include "../modal/modal.h"
 #include "_verificarDirecao.h"
 
 void moverEsquerda(stDadosCabeca *dadosCabeca)

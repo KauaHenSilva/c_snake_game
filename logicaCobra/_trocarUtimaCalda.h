@@ -1,8 +1,6 @@
 #if !defined(TROCARUTIMACALDA)
 #define TROCARUTIMACALDA
 
-#include "../modal/modal.h"
-
 void trocarUtimaCalda(stDadosCalda *dadosCalda, stDadosCabeca dadosCabeca)
 {
   int caldaAnteriorX, caldaAnteriorY;

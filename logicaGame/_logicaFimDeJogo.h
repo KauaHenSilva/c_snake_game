@@ -1,10 +1,6 @@
 #if !defined(LOGICAFIMDEJOGO)
 #define LOGICAFIMDEJOGO
 
-#include <stdio.h>
-#include <conio.h>
-#include "../modal/modal.h"
-
 void LogicaFimDeJogo(int ***tela, stDadosStatusGame dadosStatusGame, stDadosCalda *dadosCalda)
 {
   printf("\n\nFim de jogo!\n");

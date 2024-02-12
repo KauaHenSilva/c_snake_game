@@ -1,9 +1,6 @@
 #if !defined(LOGICAVELOCIDAD)
 #define LOGICAVELOCIDAD
 
-#include "../modal/modal.h"
-#include <windows.h>
-
 void logicaVelocidade(stDadosStatusGame *dadosStatusGame, stDadosConstantes dadosConstantes)
 {
   int velocidade;
@@ -36,7 +33,6 @@ void logicaVelocidade(stDadosStatusGame *dadosStatusGame, stDadosConstantes dado
     {
       Sleep(dadosConstantes.velocidade / velocidade);
     }
-
 }
 
 #endif // LOGICAVELOCIDAD

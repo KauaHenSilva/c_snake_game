@@ -3,7 +3,6 @@
 
 static int _comidaColisaoCobra();
 
-
 void colisaoComComida(stDadosCabeca dadosCabeca, stDadosComida *dadosComida, stDadosStatusGame *dadosStatusGame, stDadosCalda *dadosCalda)
 {
   if (dadosCabeca.cabecaX == (*dadosComida).comidaX 
@@ -23,6 +22,7 @@ void colisaoComComida(stDadosCabeca dadosCabeca, stDadosComida *dadosComida, stD
   
   }
 }
+
 static int _comidaColisaoCobra(stDadosCalda dadosCalda, stDadosComida dadosComida, stDadosCabeca dadosCabeca)
 {
   for (int i = 0; i < dadosCalda.tamanhoCauda; i++)

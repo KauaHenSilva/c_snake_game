@@ -19,6 +19,4 @@ struct
   (void (*) (stDadosCabeca *))moverDireita
 };
 
-
-
 #endif // SISTEMAMOVIMENTACAO

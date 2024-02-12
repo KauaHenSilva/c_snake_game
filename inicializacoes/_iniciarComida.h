@@ -1,9 +1,6 @@
 #if !defined(_INICIARCOMIDA)
 #define _INICIARCOMIDA
 
-#include "../modal/modal.h"
-#include <stdlib.h>
-
 void _iniciarComida(stDadosComida *dadosComida, stDadosCabeca dadosCabeca, stDadosConstantes dadosConstantes)
 {
   do{

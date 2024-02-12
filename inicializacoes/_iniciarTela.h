@@ -1,9 +1,6 @@
 #if !defined(INICIARTELA)
 #define INICIARTELA
 
-#include <stdlib.h>
-#include "../modal/modal.h"
-
 void iniciarTela(int ***tela, stDadosConstantes dadosConstantes)
 {
   *tela = (int **)malloc(dadosConstantes.tamanhoDaTelaAltura * sizeof(int *));

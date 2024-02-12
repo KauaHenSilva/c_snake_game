@@ -1,6 +1,8 @@
 #if !defined(MOVERDIREITA)
 #define MOVERDIREITA
 
+#include "_verificarDirecao.h"
+
 void moverDireita(stDadosCabeca *dadosCabeca)
 {
   direcao = DIREITA;

@@ -1,9 +1,6 @@
 #if !defined(_INICIARCORPO)
 #define _INICIARCORPO
 
-#include "../modal/modal.h"
-#include <stdlib.h>
-
 void _iniciarCalda(stDadosCalda *dadosCalda, stDadosConstantes dadosConstantes)
 {
   (*dadosCalda).tamanhoCauda = 0;

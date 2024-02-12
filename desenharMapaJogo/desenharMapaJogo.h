@@ -13,5 +13,4 @@ struct
   (void (*)(int ***, stDadosConstantes, stDadosCabeca, stDadosComida, stDadosCalda)) integrarTela,
 };
 
-
 #endif // DESENHARMAPA

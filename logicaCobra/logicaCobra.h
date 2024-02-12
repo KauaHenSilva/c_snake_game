@@ -22,5 +22,4 @@ struct
   (void (*) (stDadosCalda , stDadosStatusGame *, stDadosCabeca ))colisaoComCalda
 };
 
-
 #endif // LOGICACOBRA
