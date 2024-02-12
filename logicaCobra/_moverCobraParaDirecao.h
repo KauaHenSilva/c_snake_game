@@ -3,10 +3,10 @@
 
 #include "../modal/modal.h"
 
-void moverCobraParaDirecao()
+void moverCobraParaDirecao(stDadosCabeca *dadosCabeca)
 {
-  dadosCabeca.cabecaX += dadosCabeca.direcaoCabecaX;
-  dadosCabeca.cabecaY += dadosCabeca.direcaoCabecaY;
+  (*dadosCabeca).cabecaX += (*dadosCabeca).direcaoCabecaX;
+  (*dadosCabeca).cabecaY += (*dadosCabeca).direcaoCabecaY;
 }
 
 #endif // MOVERCOBRAPARADIRECAO

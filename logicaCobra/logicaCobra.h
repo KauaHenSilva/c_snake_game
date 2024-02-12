@@ -9,17 +9,17 @@
 
 struct 
 {
-  void (*trocarUtimaCalda)();
-  void (*verificarCasoBatidaParede)(int tamTelaLargura, int tamTelaAltura);
-  void (*moverCobraParaDirecao)();
-  void (*colisaoComComida)();
-  void (*colisaoComCalda)();
+  void (*trocarUtimaCalda)(stDadosCalda *dadosCalda, stDadosCabeca dadosCabeca);
+  void (*verificarCasoBatidaParede)(stDadosCabeca dadosCabeca, stDadosConstantes dadosConstantes, stDadosStatusGame *dadosStatusGame);
+  void (*moverCobraParaDirecao)(stDadosCabeca *dadosCabeca);
+  void (*colisaoComComida)(stDadosCabeca dadosCabeca, stDadosComida *dadosComida, stDadosStatusGame *dadosStatusGame, stDadosCalda *dadosCalda);
+  void (*colisaoComCalda)(stDadosCalda dadosCalda, stDadosStatusGame *dadosStatusGame, stDadosCabeca dadosCabeca);
 }logicaCobra = {
-  (void (*) (void))trocarUtimaCalda,
-  (void (*) (int, int))verificarBatidaParede,
-  (void (*) (void))moverCobraParaDirecao,
-  (void (*) (void))colisaoComComida,
-  (void (*) (void))colisaoComCalda
+  (void (*) (stDadosCalda *, stDadosCabeca))trocarUtimaCalda,
+  (void (*) (stDadosCabeca, stDadosConstantes, stDadosStatusGame *))verificarBatidaParede,
+  (void (*) (stDadosCabeca *))moverCobraParaDirecao,
+  (void (*) (stDadosCabeca, stDadosComida *, stDadosStatusGame *, stDadosCalda *))colisaoComComida,
+  (void (*) (stDadosCalda , stDadosStatusGame *, stDadosCabeca ))colisaoComCalda
 };
 
 

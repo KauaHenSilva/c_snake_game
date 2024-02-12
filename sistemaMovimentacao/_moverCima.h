@@ -3,13 +3,13 @@
 
 #include "_verificarDirecao.h"
 
-void moverCima()
+void moverCima(stDadosCabeca *dadosCabeca)
 {
   direcao = CIMA;
-  if (verificarDirecaoValida(direcao))
+  if (verificarDirecaoValida(*dadosCabeca, direcao))
   {
-    dadosCabeca.direcaoCabecaX = 0;
-    dadosCabeca.direcaoCabecaY = -1;
+    (*dadosCabeca).direcaoCabecaX = 0;
+    (*dadosCabeca).direcaoCabecaY = -1;
   }
 }
 

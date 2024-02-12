@@ -8,15 +8,15 @@
 
 struct 
 {
-  void (*moverCima)();
-  void (*moverBaixo)();
-  void (*moverEsquerda)();
-  void (*moverDireita)();
+  void (*moverCima)(stDadosCabeca *dadosCabeca);
+  void (*moverBaixo)(stDadosCabeca *dadosCabeca);
+  void (*moverEsquerda)(stDadosCabeca *dadosCabeca);
+  void (*moverDireita)(stDadosCabeca *dadosCabeca);
 } sistemaMovimentacao = {
-  (void (*) (void))moverCima,
-  (void (*) (void))moverBaixo,
-  (void (*) (void))moverEsquerda,
-  (void (*) (void))moverDireita
+  (void (*) (stDadosCabeca *))moverCima,
+  (void (*) (stDadosCabeca *))moverBaixo,
+  (void (*) (stDadosCabeca *))moverEsquerda,
+  (void (*) (stDadosCabeca *))moverDireita
 };
 
 

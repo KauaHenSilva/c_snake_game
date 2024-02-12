@@ -3,12 +3,12 @@
 
 #include "../modal/modal.h"
 
-void _iniciarCabeca()
+void _iniciarCabeca(stDadosCabeca *dadosCabeca)
 {
-    dadosCabeca.cabecaX = 1;
-    dadosCabeca.cabecaY = 0;
-    dadosCabeca.direcaoCabecaX = 0;
-    dadosCabeca.direcaoCabecaY = 0;
+    (*dadosCabeca).cabecaX = 0;
+    (*dadosCabeca).cabecaY = 0;
+    (*dadosCabeca).direcaoCabecaX = 0;
+    (*dadosCabeca).direcaoCabecaY = 0;
 }
 
 #endif // _INICIARCABECA

@@ -1,12 +1,12 @@
 #if !defined(MODAL)
 #define MODAL
 
-struct  {
+typedef struct {
   int pontuacao;
   int jogoEncerrado;
   int colisaoParede;
   int colisaoCalda;
-} dadosStatusGame;
+} stDadosStatusGame;
 
 enum
 {
@@ -16,25 +16,33 @@ enum
   DIREITA
 } direcao;
 
-struct 
+typedef struct 
 {
   int cabecaX;
   int cabecaY;
   int direcaoCabecaX;
   int direcaoCabecaY;
-} dadosCabeca;
+} stDadosCabeca;
 
-struct
+typedef struct
 {
   int comidaX;
   int comidaY;
-} dadosComida;
+} stDadosComida;
 
-struct
+typedef struct
 {
   int *caldaX;
   int *caldaY;
   int tamanhoCauda;
-} dadosCalda;
+} stDadosCalda;
+
+typedef struct 
+{
+  int velocidade;
+  int tamanhoDaTelaAltura;
+  int tamanhoDaTelaLargura;
+  int tamanhoDaCaldaMax;
+} stDadosConstantes;
 
 #endif // MODAL

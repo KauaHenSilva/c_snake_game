@@ -3,7 +3,7 @@
 
 #include "../modal/modal.h"
 
-int verificarDirecaoValida(int novaDirecao)
+int verificarDirecaoValida(stDadosCabeca dadosCabeca,int novaDirecao)
 {
   if ((novaDirecao == CIMA && dadosCabeca.direcaoCabecaY == 1) ||
       (novaDirecao == BAIXO && dadosCabeca.direcaoCabecaY == -1) ||

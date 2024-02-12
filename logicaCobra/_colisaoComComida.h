@@ -4,24 +4,26 @@
 static int _comidaColisaoCobra();
 
 
-void colisaoComComida()
+void colisaoComComida(stDadosCabeca dadosCabeca, stDadosComida *dadosComida, stDadosStatusGame *dadosStatusGame, stDadosCalda *dadosCalda)
 {
-  if (dadosCabeca.cabecaX == dadosComida.comidaX 
-      && dadosCabeca.cabecaY ==  dadosComida.comidaY)
+  if (dadosCabeca.cabecaX == (*dadosComida).comidaX 
+      && dadosCabeca.cabecaY ==  (*dadosComida).comidaY)
   {
-    dadosStatusGame.pontuacao += 10;
+    (*dadosStatusGame).pontuacao += 10;
     do
     {
-      dadosComida.comidaX = rand() % TAMANHO_TELA_LARGURA;
-      dadosComida.comidaY = rand() % TAMANHO_TELA_ALTURA;
-    } while (dadosComida.comidaX == 0 || _comidaColisaoCobra() == 1);
+      (*dadosComida).comidaX = rand() % TAMANHO_TELA_LARGURA;
+      (*dadosComida).comidaY = rand() % TAMANHO_TELA_ALTURA;
+    } while (_comidaColisaoCobra(*dadosCalda, *dadosComida, dadosCabeca) == 1);
 
-    dadosCalda.tamanhoCauda++;
-    SistemaSom.playAudioComendo();
+    (*dadosCalda).tamanhoCauda++;
+    #if defined(SISTEMASOM)
+      SistemaSom.playAudioComendo();
+    #endif 
+  
   }
 }
-
-static int _comidaColisaoCobra()
+static int _comidaColisaoCobra(stDadosCalda dadosCalda, stDadosComida dadosComida, stDadosCabeca dadosCabeca)
 {
   for (int i = 0; i < dadosCalda.tamanhoCauda; i++)
   {
@@ -31,7 +33,7 @@ static int _comidaColisaoCobra()
   }
   if((dadosComida.comidaX == dadosCabeca.cabecaX 
         && dadosComida.comidaY == dadosCabeca.cabecaY))
-        return 1;
+      return 1;
   return 0;
 }
 

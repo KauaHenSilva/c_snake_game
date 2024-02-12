@@ -4,37 +4,37 @@
 #include "../modal/modal.h"
 #include <windows.h>
 
-void logicaVelocidade(int velocidadeGame)
+void logicaVelocidade(stDadosStatusGame *dadosStatusGame, stDadosConstantes dadosConstantes)
 {
   int velocidade;
-    if (dadosStatusGame.pontuacao < 50)
+    if ((*dadosStatusGame).pontuacao < 50)
     {
       velocidade = 5;
     }
-    else if (dadosStatusGame.pontuacao < 100)
+    else if ((*dadosStatusGame).pontuacao < 100)
     {
       velocidade = 6;
     }
-    else if (dadosStatusGame.pontuacao < 150)
+    else if ((*dadosStatusGame).pontuacao < 150)
     {
       velocidade = 8;
     }
-    else if (dadosStatusGame.pontuacao < 200)
+    else if ((*dadosStatusGame).pontuacao < 200)
     {
       velocidade = 10;
     }
-    else if (dadosStatusGame.pontuacao < 200)
+    else if ((*dadosStatusGame).pontuacao < 200)
     {
       velocidade = 12;
     }
 
     if (direcao == CIMA || direcao == BAIXO)
     {
-      Sleep((velocidadeGame / velocidade) * 2);
+      Sleep((dadosConstantes.velocidade / velocidade) * 2);
     }
     else if (direcao == ESQUERDA || direcao == DIREITA)
     {
-      Sleep(velocidadeGame / velocidade);
+      Sleep(dadosConstantes.velocidade / velocidade);
     }
 
 }

@@ -5,9 +5,9 @@
 
 struct 
 {
-  void (*desenharMapaJogo)(int tamTelaLargura, int tamTelaAltura);
+  void (*desenharMapaJogo)(stDadosConstantes dadosConstantes, stDadosCabeca dadosCabeca, stDadosComida dadosComida, stDadosCalda dadosCalda);
 }desenharMapaJogo = {
-  (void (*)(int, int)) _desenharMapaJogo
+  (void (*)(stDadosConstantes, stDadosCabeca, stDadosComida, stDadosCalda)) _desenharMapaJogo
 };
 
 

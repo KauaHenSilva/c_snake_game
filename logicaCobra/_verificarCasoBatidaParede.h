@@ -3,15 +3,15 @@
 
 #include "../modal/modal.h"
 
-void verificarBatidaParede(int tamTelaLargura, int tamTelaAltura)
+void verificarBatidaParede(stDadosCabeca dadosCabeca, stDadosConstantes dadosConstantes, stDadosStatusGame *dadosStatusGame)
 {
-    if (dadosCabeca.cabecaX < 1 
-      || dadosCabeca.cabecaX >= tamTelaLargura 
+    if (dadosCabeca.cabecaX < 0 
+      || dadosCabeca.cabecaX >= dadosConstantes.tamanhoDaTelaLargura 
       || dadosCabeca.cabecaY < 0 
-      || dadosCabeca.cabecaY >= tamTelaAltura)
+      || dadosCabeca.cabecaY >= dadosConstantes.tamanhoDaTelaAltura)
   {
-    dadosStatusGame.colisaoParede = 1;
-    dadosStatusGame.jogoEncerrado = 1;
+    (*dadosStatusGame).colisaoParede = 1;
+    (*dadosStatusGame).jogoEncerrado = 1;
   }
 }
 

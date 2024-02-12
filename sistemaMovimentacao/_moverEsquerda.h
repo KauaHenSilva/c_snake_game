@@ -4,13 +4,13 @@
 #include "../modal/modal.h"
 #include "_verificarDirecao.h"
 
-void moverEsquerda()
+void moverEsquerda(stDadosCabeca *dadosCabeca)
 {
   direcao = ESQUERDA;
-  if (verificarDirecaoValida(direcao))
+  if (verificarDirecaoValida(*dadosCabeca, direcao))
   {
-    dadosCabeca.direcaoCabecaX = -1;
-    dadosCabeca.direcaoCabecaY = 0;
+    (*dadosCabeca).direcaoCabecaX = -1;
+    (*dadosCabeca).direcaoCabecaY = 0;
   }
 }
 

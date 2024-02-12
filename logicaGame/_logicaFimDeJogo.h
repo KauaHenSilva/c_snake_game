@@ -5,7 +5,7 @@
 #include <conio.h>
 #include "../modal/modal.h"
 
-void LogicaFimDeJogo()
+void LogicaFimDeJogo(stDadosStatusGame dadosStatusGame, stDadosCalda *dadosCalda)
 {
   printf("\n\nFim de jogo!\n");
   if (dadosStatusGame.jogoEncerrado == 1)
@@ -25,6 +25,8 @@ void LogicaFimDeJogo()
       break;
     }
   while (1);
+  free((*dadosCalda).caldaX);
+  free((*dadosCalda).caldaY);
 }
 
 #endif // LOGICAFIMDEJOGO

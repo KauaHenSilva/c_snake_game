@@ -14,13 +14,13 @@ static void _desenharLinha(int tamTelaLargura)
   printf("\n");
 }
 
-void _desenharMapaJogo(int tamTelaLargura, int tamTelaAltura)
+void _desenharMapaJogo(stDadosConstantes dadosConstantes, stDadosCabeca dadosCabeca, stDadosComida dadosComida, stDadosCalda dadosCalda)
 {
-  _desenharLinha(tamTelaLargura);
+  _desenharLinha(dadosConstantes.tamanhoDaTelaLargura);
   
-  for (int x = 0; x < tamTelaAltura; x++)
+  for (int x = 0; x < dadosConstantes.tamanhoDaTelaAltura; x++)
   {
-    for (int y = 0; y < tamTelaLargura; y++)
+    for (int y = 0; y < dadosConstantes.tamanhoDaTelaLargura; y++)
     {
       // desenhar a borda da esquerda
       if (y == 0)
@@ -55,7 +55,7 @@ void _desenharMapaJogo(int tamTelaLargura, int tamTelaAltura)
         }
       }
       // desenhar a borda da direita
-      if (y == tamTelaLargura - 1)
+      if (y == dadosConstantes.tamanhoDaTelaLargura - 1)
       {
         printf("%c", 219);
       }
@@ -63,7 +63,7 @@ void _desenharMapaJogo(int tamTelaLargura, int tamTelaAltura)
     printf("\n");
   }
 
-  _desenharLinha(tamTelaLargura);
+  _desenharLinha(dadosConstantes.tamanhoDaTelaLargura);
 
 }
 

@@ -6,11 +6,11 @@
 
 struct 
 {
-  void (*logicaVelocidade)(int velocidadeGame);
-  void (*logicaFimDeJogo)();
+  void (*logicaVelocidade)(stDadosStatusGame *dadosStatusGame, stDadosConstantes dadosConstantes);
+  void (*logicaFimDeJogo)(stDadosStatusGame dadosStatusGame, stDadosCalda *dadosCalda);
 }logicaGame = {
-  (void (*) (int))logicaVelocidade,
-  (void (*) (void))LogicaFimDeJogo
+  (void (*) (stDadosStatusGame*, stDadosConstantes))logicaVelocidade,
+  (void (*) (stDadosStatusGame, stDadosCalda *))LogicaFimDeJogo
 };
 
 

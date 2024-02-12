@@ -5,7 +5,7 @@
 #include <time.h>
 
 #define TAMANHO_TELA_ALTURA 10
-#define VELOCIDADE 300
+#define VELOCIDADE 400
 #define TAMANHO_TELA_LARGURA (TAMANHO_TELA_ALTURA * 2)
 #define TAMANHO_CALDA_MAX (TAMANHO_TELA_ALTURA * TAMANHO_TELA_LARGURA)
 
@@ -20,26 +20,26 @@
 void obterEntradaUsuario();
 void atualizarLogicaJogo();
 
-void obterEntradaUsuario()
+void obterEntradaUsuario(stDadosStatusGame *dadosStatusGame, stDadosCabeca *dadosCabeca)
 {
   if (kbhit())
   {
     switch (getch())
     {
       case 'a':
-        sistemaMovimentacao.moverEsquerda();
+        sistemaMovimentacao.moverEsquerda(dadosCabeca);
         break;
       case 's':
-        sistemaMovimentacao.moverBaixo();
+        sistemaMovimentacao.moverBaixo(dadosCabeca);
         break;
       case 'd':
-        sistemaMovimentacao.moverDireita();
+        sistemaMovimentacao.moverDireita(dadosCabeca);
         break;
       case 'w':
-        sistemaMovimentacao.moverCima();
+        sistemaMovimentacao.moverCima(dadosCabeca);
         break;
       case 'x':
-        dadosStatusGame.jogoEncerrado = 1;
+        (*dadosStatusGame).jogoEncerrado = 1;
         break;
     }
   }
@@ -47,41 +47,48 @@ void obterEntradaUsuario()
 
 
 
-void atualizarLogicaJogo()
+void atualizarLogicaJogo(stDadosCalda *dadosCalda, stDadosStatusGame *dadosStatusGame, stDadosCabeca *dadosCabeca, stDadosConstantes *dadosConstantes, stDadosComida *dadosComida)
 {
-  logicaCobra.trocarUtimaCalda();
+  logicaCobra.trocarUtimaCalda(dadosCalda, *dadosCabeca);
 
-  logicaCobra.moverCobraParaDirecao();
+  logicaCobra.moverCobraParaDirecao(dadosCabeca);
 
-  logicaCobra.verificarCasoBatidaParede(TAMANHO_TELA_LARGURA, TAMANHO_TELA_ALTURA);
+  logicaCobra.verificarCasoBatidaParede(*dadosCabeca, *dadosConstantes, dadosStatusGame);
 
-  logicaCobra.colisaoComComida();
+  logicaCobra.colisaoComComida(*dadosCabeca, dadosComida, dadosStatusGame, dadosCalda);
 
-  logicaCobra.colisaoComCalda();
+  logicaCobra.colisaoComCalda(*dadosCalda, dadosStatusGame, *dadosCabeca);
 
 }
 
 int main()
 {
+  stDadosConstantes dadosConstantes;
+  stDadosStatusGame dadosStatusGame;
+  stDadosCabeca dadosCabeca;
+  stDadosComida dadosComida;
+  stDadosCalda dadosCalda;
+
   srand(time(NULL));
 
-  Inicializacoes.iniciarCabeca();
-  Inicializacoes.iniciarCalda(TAMANHO_CALDA_MAX);
-  Inicializacoes.iniciarDadosJogo();
-  Inicializacoes.iniciarComida(TAMANHO_TELA_LARGURA, TAMANHO_TELA_ALTURA);
+  Inicializacoes.iniciarDadosConstantes(&dadosConstantes, TAMANHO_CALDA_MAX, TAMANHO_TELA_ALTURA, TAMANHO_TELA_LARGURA, VELOCIDADE);
+  Inicializacoes.iniciarCabeca(&dadosCabeca);
+  Inicializacoes.iniciarCalda(&dadosCalda, dadosConstantes);
+  Inicializacoes.iniciarDadosJogo(&dadosStatusGame);
+  Inicializacoes.iniciarComida(&dadosComida, dadosCabeca, dadosConstantes);
 
   while (dadosStatusGame.jogoEncerrado == 0)
   {
     printf("Sua pontuacao eh: %d\n", dadosStatusGame.pontuacao);
-    obterEntradaUsuario();
-    atualizarLogicaJogo();
-    desenharMapaJogo.desenharMapaJogo(TAMANHO_TELA_LARGURA, TAMANHO_TELA_ALTURA);
-    logicaGame.logicaVelocidade(VELOCIDADE);
+    obterEntradaUsuario(&dadosStatusGame, &dadosCabeca);
+    atualizarLogicaJogo(&dadosCalda, &dadosStatusGame, &dadosCabeca, &dadosConstantes, &dadosComida);
+    desenharMapaJogo.desenharMapaJogo(dadosConstantes, dadosCabeca, dadosComida, dadosCalda);
+    logicaGame.logicaVelocidade(&dadosStatusGame, dadosConstantes);
 
     system("cls");
   }
 
-  logicaGame.logicaFimDeJogo();
+  logicaGame.logicaFimDeJogo(dadosStatusGame, &dadosCalda);
 
   return 0;
 }
