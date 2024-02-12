@@ -16,6 +16,10 @@ void LogicaFimDeJogo(int ***tela, stDadosStatusGame dadosStatusGame, stDadosCald
   {
     printf("Voce bateu em si mesmo!\n");
   }
+  else if(dadosStatusGame.jogoEncerrado == 3)
+  {
+    printf("Voce saiu do jogo!\n");
+  }
   printf("Sua pontuacao foi: %d\n", dadosStatusGame.pontuacao);
 
   printf("Pressione espaco para sair\n");
@@ -25,7 +29,7 @@ void LogicaFimDeJogo(int ***tela, stDadosStatusGame dadosStatusGame, stDadosCald
       break;
     }
   while (1);
-  
+
   free((*dadosCalda).caldaX);
   free((*dadosCalda).caldaY);
   for (int x = 0; x < 20; x++)

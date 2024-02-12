@@ -83,4 +83,4 @@ Agora o projeto está configurado. Você pode executá-lo com o seguinte comando
   ./main.exe
   ```
 
-Use as teclas 'w', 'a', 's' e 'd' para controlar a cobra. O jogo termina quando a cobra bate na parede ou em si mesma.
+Use as teclas 'w' , 'a', 's' e 'd' para controlar a cobra, ou usar as setas do teclado para controlar a cobra. O jogo termina quando a cobra bate na parede, bate em si mesma ou quando o usuario aperta 'x'.

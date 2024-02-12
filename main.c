@@ -24,19 +24,28 @@ void obterEntradaUsuario(stDadosStatusGame *dadosStatusGame, stDadosCabeca *dado
     switch (getch())
     {
       case 'a':
+      case 'A':
+      case 75:
         sistemaMovimentacao.moverEsquerda(dadosCabeca);
         break;
       case 's':
+      case 'S':
+      case 80:
         sistemaMovimentacao.moverBaixo(dadosCabeca);
         break;
       case 'd':
+      case 'D':
+      case 77:
         sistemaMovimentacao.moverDireita(dadosCabeca);
         break;
       case 'w':
+      case 'W':
+      case 72:
         sistemaMovimentacao.moverCima(dadosCabeca);
         break;
       case 'x':
-        (*dadosStatusGame).jogoEncerrado = 1;
+      case 'X':
+        (*dadosStatusGame).jogoEncerrado = 3;
         break;
     }
   }
