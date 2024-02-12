@@ -7,10 +7,10 @@
 struct 
 {
   void (*logicaVelocidade)(stDadosStatusGame *dadosStatusGame, stDadosConstantes dadosConstantes);
-  void (*logicaFimDeJogo)(stDadosStatusGame dadosStatusGame, stDadosCalda *dadosCalda);
+  void (*logicaFimDeJogo)(int ***tela, stDadosStatusGame dadosStatusGame, stDadosCalda *dadosCalda);
 }logicaGame = {
   (void (*) (stDadosStatusGame*, stDadosConstantes))logicaVelocidade,
-  (void (*) (stDadosStatusGame, stDadosCalda *))LogicaFimDeJogo
+  (void (*) (int ***, stDadosStatusGame, stDadosCalda *))LogicaFimDeJogo
 };
 
 

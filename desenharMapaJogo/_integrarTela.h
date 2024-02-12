@@ -5,37 +5,23 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-static void _desenharLinha(int tamTelaLargura)
-{
-  for (int x = 0; x < tamTelaLargura + 2; x++)
-  {
-    printf("%c", 219);
-  }
-  printf("\n");
-}
 
-void _desenharMapaJogo(stDadosConstantes dadosConstantes, stDadosCabeca dadosCabeca, stDadosComida dadosComida, stDadosCalda dadosCalda)
+void integrarTela(int ***tela, stDadosConstantes dadosConstantes, stDadosCabeca dadosCabeca, stDadosComida dadosComida, stDadosCalda dadosCalda)
 {
-  _desenharLinha(dadosConstantes.tamanhoDaTelaLargura);
   
   for (int x = 0; x < dadosConstantes.tamanhoDaTelaAltura; x++)
   {
     for (int y = 0; y < dadosConstantes.tamanhoDaTelaLargura; y++)
     {
-      // desenhar a borda da esquerda
-      if (y == 0)
-      {
-         printf("%c", 219);
-      }
       // desenhar a cabeça
       if (y == dadosCabeca.cabecaX && x == dadosCabeca.cabecaY)
       {
-        printf("O");
+        (*tela)[x][y] = 'O';
       }
       // desenhar a comida
       else if (y == dadosComida.comidaX && x == dadosComida.comidaY)
       {
-        printf("%c", 235);
+        (*tela)[x][y] = 208;
       }
       // desenhar a calda
       else
@@ -45,25 +31,18 @@ void _desenharMapaJogo(stDadosConstantes dadosConstantes, stDadosCabeca dadosCab
         {
           if (dadosCalda.caldaX[k] == y && dadosCalda.caldaY[k] == x)
           {
-            printf("o");
+            (*tela)[x][y] = 'o';
             possuiCalda = 1;
           }
         }
         if (possuiCalda != 1)
         {
-          printf(" ");
+          (*tela)[x][y] = ' ';
         }
       }
-      // desenhar a borda da direita
-      if (y == dadosConstantes.tamanhoDaTelaLargura - 1)
-      {
-        printf("%c", 219);
-      }
     }
-    printf("\n");
   }
 
-  _desenharLinha(dadosConstantes.tamanhoDaTelaLargura);
 
 }
 

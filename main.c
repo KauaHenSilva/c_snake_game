@@ -17,9 +17,6 @@
 #include "./logicaGame/logicaGame.h"
 #include "./logicaCobra/logicaCobra.h"
 
-void obterEntradaUsuario();
-void atualizarLogicaJogo();
-
 void obterEntradaUsuario(stDadosStatusGame *dadosStatusGame, stDadosCabeca *dadosCabeca)
 {
   if (kbhit())
@@ -63,11 +60,14 @@ void atualizarLogicaJogo(stDadosCalda *dadosCalda, stDadosStatusGame *dadosStatu
 
 int main()
 {
+
   stDadosConstantes dadosConstantes;
   stDadosStatusGame dadosStatusGame;
   stDadosCabeca dadosCabeca;
   stDadosComida dadosComida;
   stDadosCalda dadosCalda;
+
+  int **tela;
 
   srand(time(NULL));
 
@@ -76,19 +76,21 @@ int main()
   Inicializacoes.iniciarCalda(&dadosCalda, dadosConstantes);
   Inicializacoes.iniciarDadosJogo(&dadosStatusGame);
   Inicializacoes.iniciarComida(&dadosComida, dadosCabeca, dadosConstantes);
+  Inicializacoes.iniciarTela(&tela, dadosConstantes);
 
   while (dadosStatusGame.jogoEncerrado == 0)
   {
     printf("Sua pontuacao eh: %d\n", dadosStatusGame.pontuacao);
     obterEntradaUsuario(&dadosStatusGame, &dadosCabeca);
     atualizarLogicaJogo(&dadosCalda, &dadosStatusGame, &dadosCabeca, &dadosConstantes, &dadosComida);
-    desenharMapaJogo.desenharMapaJogo(dadosConstantes, dadosCabeca, dadosComida, dadosCalda);
+    desenharMapaJogo.integrarTela(&tela, dadosConstantes, dadosCabeca, dadosComida, dadosCalda);
+    desenharMapaJogo.exibirTela(dadosConstantes, tela);
     logicaGame.logicaVelocidade(&dadosStatusGame, dadosConstantes);
 
     system("cls");
   }
 
-  logicaGame.logicaFimDeJogo(dadosStatusGame, &dadosCalda);
+  logicaGame.logicaFimDeJogo(&tela, dadosStatusGame, &dadosCalda);
 
   return 0;
 }
