@@ -22,27 +22,13 @@ GCC --version:
 
 Contribuições são bem-vindas! Para contribuir, siga estes passos:
 
-1. Faça um fork do projeto.
->https://github.com/KauaHenSilva/C_SnakeGame
-2. Crie uma nova branch com a sua feature: 
-  ```
-  git checkout -b minha-feature
-  ```
-3. Commit suas mudanças: 
-  ```
-  git commit -m 'Adiciona alguma feature'
-  ```
-4. Push a sua branch: 
-  ```
-  git push origin minha-feature
-  ```
-5. Abra um Pull Request.
+1. Favorito projeto!
 
-```bash
-git fetch upstream
-git checkout minha-feature
-git merge upstream/main
- ```
+>https://github.com/KauaHenSilva/C_SnakeGame
+
+2. Aprikore o projeto! Faça um fork.
+
+>https://github.com/KauaHenSilva/C_SnakeGame
 
 
 ### 🔧 Implantação
