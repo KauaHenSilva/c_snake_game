@@ -20,13 +20,11 @@ GCC --version:
 
 ### ❤️ Contribuição
 
-Contribuições são bem-vindas! Para contribuir, siga estes passos:
+Contribuições são bem-vindas! Para contribuir, favorito o projeto e de a sua opinião sobre o mesmo!
 
-1. Favorito projeto!
+### 🐬 Aprimore o Projeto.
 
->https://github.com/KauaHenSilva/C_SnakeGame
-
-2. Aprikore o projeto! Faça um fork.
+ajude a aprimorar o projeto! Faça um fork e desenvolva sua criatividade!
 
 >https://github.com/KauaHenSilva/C_SnakeGame
 
