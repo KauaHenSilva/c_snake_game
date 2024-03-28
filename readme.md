@@ -1,14 +1,14 @@
-# Jogo da Cobra em C
+# Snake Game in C
 
-Este é um projeto de um jogo da cobra implementado na linguagem C. O jogo apresenta uma cobra que o jogador pode controlar para pegar comida, e a cobra cresce a cada pedaço de comida que come.
+This is a project of a snake game implemented in the C language. The game features a snake that the player can control to get food, and the snake grows with each piece of food it eats.
 
-### 🚀 Inicializando
+## 🚀 Getting Started
 
-Siga as instruções abaixo para ter o projeto em execução localmente.
+Follow the instructions below to have the project running locally.
 
-### 📋 Pré-requisitos
+## 📋 Prerequisites
 
-Certifique-se de ter o compilador GCC instalado em sua máquina. Se você estiver usando o Windows, também precisará da biblioteca Winmm.
+Make sure you have the GCC compiler installed on your machine. If you are using Windows, you will also need the Winmm library.
 
 GCC --version:
 ```
@@ -18,53 +18,52 @@ GCC --version:
   warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 ```
 
-### ❤️ Contribuição
 
-Contribuições são bem-vindas! Para contribuir, favorito o projeto e de a sua opinião sobre o mesmo!
+## ❤️ Contribution
 
-### 🐬 Aprimore o Projeto.
+Contributions are welcome! To contribute, favorite the project and give your opinion about it!
 
-ajude a aprimorar o projeto! Faça um fork e desenvolva sua criatividade!
+## 🐬 Improve the Project.
+
+Help improve the project! Fork it and develop your creativity!
 
 >https://github.com/KauaHenSilva/C_SnakeGame
 
+## 🔧 Deployment
 
-### 🔧 Implantação
-
-1. **Clone este repositório:**
-
-  ```bash
-  git clone https://github.com/usuario/projeto.git
-  ```
-
-2. **Navegue até o diretório do projeto:**
+1. **Clone this repository:**
 
   ```bash
-  cd projeto
+  git clone https://github.com/username/project.git
   ```
 
+2. **Navigate to the project directory:**
 
-4. **Compilação com Audio:**
+  ```bash
+  cd project
+  ```
 
- > Descomente a linha 13 no arquivo `main.c` para adicionar a opção de áudio.
+4. **Compilation with Audio:**
+
+> Uncomment line 13 in the main.c file to add the audio option.
 
   ```bash
   gcc .\main.c -o main.exe -lWinmm
   ```
 
-5. **Compilação sem Audio:**
+5. **Compilation without Audio:**
 
   ```bash
   gcc .\main.c -o main.exe
   ```
 
 
-### Uso
+### Usage
 
-Agora o projeto está configurado. Você pode executá-lo com o seguinte comando:
+Now the project is set up. You can run it with the following command:
  
   ```bash
   ./main.exe
   ```
 
-Use as teclas 'w' , 'a', 's' e 'd' para controlar a cobra, ou usar as setas do teclado para controlar a cobra. O jogo termina quando a cobra bate na parede, bate em si mesma ou quando o usuario aperta 'x'.
+Use the ‘w’, ‘a’, ‘s’, and ‘d’ keys to control the snake, or use the arrow keys to control the snake. The game ends when the snake hits the wall, hits itself, or when the user presses ‘x’.
